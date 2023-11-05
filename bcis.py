@@ -1,5 +1,6 @@
 import random
 import time
+import tracemalloc
 
 # generating dataset if not exist
 try:
@@ -176,20 +177,12 @@ def bcis(array):
     SR = len(array) - 1
 
     while SL < SR:
-        # SWAP(array, SR, SL + int((SR-SL)/2))
         if array[SL] == array[SR]:
             check = ISEQUAL(array, SL, SR)
             if check == -1:
                 return array
         if array[SL] > array[SR]:
             SWAP(array, SL, SR)
-        # if SR - SL >= 100:
-        #     for i in range(SL + 1, (SR-SL)^0.5):
-        #         if array[SR] < array[i]:
-        #             SWAP(array, SR, i)
-        #         elif array[SL] > array[i]:
-        #             SWAP(array, SL, i)
-        # else:
         i = SL + 1
         LC = array[SL]
         RC = array[SR]
@@ -210,59 +203,96 @@ def bcis(array):
         SR -= 1
     return array
 
+tracemalloc.start()
 temp = time.time()
 bcis(tc1_500_a)
 temp2 = time.time()
+mem = tracemalloc.get_traced_memory()
+tracemalloc.stop()
 
 print("Waktu untuk TC1 (500, sorted):",str(temp2-temp),"detik")
+print("Memory usage TC1: ",mem[1])
 
+tracemalloc.start()
 temp = time.time()
 bcis(tc2_500_d)
 temp2 = time.time()
+mem = tracemalloc.get_traced_memory()
+tracemalloc.stop()
 
 print("Waktu untuk TC2 (500, reversed):",str(temp2-temp),"detik")
+print("Memory usage TC2: ",mem[1])
 
+tracemalloc.start()
 temp = time.time()
 bcis(tc3_500_r)
 temp2 = time.time()
+mem = tracemalloc.get_traced_memory()
+tracemalloc.stop()
 
 print("Waktu untuk TC3 (500, random):",str(temp2-temp),"detik")
+print("Memory usage TC3: ",mem[1])
 
 
 
+tracemalloc.start()
 temp = time.time()
 bcis(tc4_5000_a)
 temp2 = time.time()
+mem = tracemalloc.get_traced_memory()
+tracemalloc.stop()
 
 print("Waktu untuk TC4 (5000, sorted):",str(temp2-temp),"detik")
+print("Memory usage TC4: ",mem[1])
 
+tracemalloc.start()
 temp = time.time()
 bcis(tc5_5000_d)
 temp2 = time.time()
+mem = tracemalloc.get_traced_memory()
+tracemalloc.stop()
 
 print("Waktu untuk TC5 (5000, reversed):",str(temp2-temp),"detik")
+print("Memory usage TC5: ",mem[1])
 
+tracemalloc.start()
 temp = time.time()
 bcis(tc6_5000_r)
 temp2 = time.time()
+mem = tracemalloc.get_traced_memory()
+tracemalloc.stop()
 
 print("Waktu untuk TC6 (5000, random):",str(temp2-temp),"detik")
+print("Memory usage TC6: ",mem[1])
 
 
+
+tracemalloc.start()
 temp = time.time()
 bcis(tc7_50000_a)
 temp2 = time.time()
+mem = tracemalloc.get_traced_memory()
+tracemalloc.stop()
 
 print("Waktu untuk TC7 (50000, sorted):",str(temp2-temp),"detik")
+print("Memory usage TC7: ",mem[1])
 
+tracemalloc.start()
 temp = time.time()
 bcis(tc8_50000_d)
 temp2 = time.time()
+mem = tracemalloc.get_traced_memory()
+tracemalloc.stop()
 
 print("Waktu untuk TC8 (50000, reversed):",str(temp2-temp),"detik")
+print("Memory usage TC8: ",mem[1])
 
+tracemalloc.start()
 temp = time.time()
 bcis(tc9_50000_r)
 temp2 = time.time()
+mem = tracemalloc.get_traced_memory()
+tracemalloc.stop()
 
 print("Waktu untuk TC9 (50000, random):",str(temp2-temp),"detik")
+print("Memory usage TC9: ",mem[1])

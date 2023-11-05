@@ -4,6 +4,7 @@
 # generating dataset if not exists
 import random
 import time
+import tracemalloc
 
 # generating dataset if not exist
 try:
@@ -175,59 +176,96 @@ def count_sort(input_array):
  
     return output_array
 
+tracemalloc.start()
 temp = time.time()
 count_sort(tc1_500_a)
 temp2 = time.time()
+mem = tracemalloc.get_traced_memory()
+tracemalloc.stop()
 
 print("Waktu untuk TC1 (500, sorted):",str(temp2-temp),"detik")
+print("Memory usage TC1: ",mem[1])
 
+tracemalloc.start()
 temp = time.time()
 count_sort(tc2_500_d)
 temp2 = time.time()
+mem = tracemalloc.get_traced_memory()
+tracemalloc.stop()
 
 print("Waktu untuk TC2 (500, reversed):",str(temp2-temp),"detik")
+print("Memory usage TC2: ",mem[1])
 
+tracemalloc.start()
 temp = time.time()
 count_sort(tc3_500_r)
 temp2 = time.time()
+mem = tracemalloc.get_traced_memory()
+tracemalloc.stop()
 
 print("Waktu untuk TC3 (500, random):",str(temp2-temp),"detik")
+print("Memory usage TC3: ",mem[1])
 
 
 
+tracemalloc.start()
 temp = time.time()
 count_sort(tc4_5000_a)
 temp2 = time.time()
+mem = tracemalloc.get_traced_memory()
+tracemalloc.stop()
 
 print("Waktu untuk TC4 (5000, sorted):",str(temp2-temp),"detik")
+print("Memory usage TC4: ",mem[1])
 
+tracemalloc.start()
 temp = time.time()
 count_sort(tc5_5000_d)
 temp2 = time.time()
+mem = tracemalloc.get_traced_memory()
+tracemalloc.stop()
 
 print("Waktu untuk TC5 (5000, reversed):",str(temp2-temp),"detik")
+print("Memory usage TC5: ",mem[1])
 
+tracemalloc.start()
 temp = time.time()
 count_sort(tc6_5000_r)
 temp2 = time.time()
+mem = tracemalloc.get_traced_memory()
+tracemalloc.stop()
 
 print("Waktu untuk TC6 (5000, random):",str(temp2-temp),"detik")
+print("Memory usage TC6: ",mem[1])
 
 
+
+tracemalloc.start()
 temp = time.time()
 count_sort(tc7_50000_a)
 temp2 = time.time()
+mem = tracemalloc.get_traced_memory()
+tracemalloc.stop()
 
 print("Waktu untuk TC7 (50000, sorted):",str(temp2-temp),"detik")
+print("Memory usage TC7: ",mem[1])
 
+tracemalloc.start()
 temp = time.time()
 count_sort(tc8_50000_d)
 temp2 = time.time()
+mem = tracemalloc.get_traced_memory()
+tracemalloc.stop()
 
 print("Waktu untuk TC8 (50000, reversed):",str(temp2-temp),"detik")
+print("Memory usage TC8: ",mem[1])
 
+tracemalloc.start()
 temp = time.time()
 count_sort(tc9_50000_r)
 temp2 = time.time()
+mem = tracemalloc.get_traced_memory()
+tracemalloc.stop()
 
 print("Waktu untuk TC9 (50000, random):",str(temp2-temp),"detik")
+print("Memory usage TC9: ",mem[1])
